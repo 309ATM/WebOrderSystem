@@ -6,10 +6,10 @@ import com.light.exception.DatabaseException;
 public class UserDao {
 	
 	public void findUser(String userName,String password) {
-		//TODO µ÷ÓÃÊı¾İ¿â·½·¨
-		boolean isExist = true;
+		//TODO ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ¿â·½ï¿½ï¿½
+		boolean isExist = false;
 		if(! isExist) {
-			throw new DatabaseException(null,"ÓÃ»§²»´æÔÚ","DB__0001");
+			throw new DatabaseException(null,"ç”¨æˆ·ä¸å­˜åœ¨","DB__0001");
 		}
 	}
 }

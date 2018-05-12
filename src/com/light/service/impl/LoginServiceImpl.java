@@ -1,6 +1,7 @@
 package com.light.service.impl;
 
 import com.light.dao.UserDao;
+import com.light.exception.DatabaseException;
 import com.light.exception.InvalidDataException;
 import com.light.service.ILoginService;
 
@@ -8,19 +9,17 @@ import com.light.service.ILoginService;
 public class LoginServiceImpl implements ILoginService{
 
 	public void login(String userName,String pwd) {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+		// TODO ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ÉµÄ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (null == userName || "".equals(userName.trim())) {
-			throw new InvalidDataException(null,"ÓÃ»§ÃûÎª¿Õ","Data_0001");
+			throw new InvalidDataException(null,"ç”¨æˆ·åä¸ºç©º","Data_0001");
 		}
-		
-		// TODO µ÷ÓÃ DAO
+
+		// TODO ï¿½ï¿½ï¿½ï¿½ DAO
 		try {
 			UserDao userDao = new UserDao();
 			userDao.findUser(userName, pwd);
-		} catch (Exception e) {
-			System.out.println("err.jsp");
+		} catch (DatabaseException e) {
+			throw e;
 		}
-
 	}
-
 }

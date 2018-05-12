@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.light.exception.DatabaseException;
+import com.light.exception.InvalidDataException;
 import com.light.service.impl.LoginServiceImpl;
 
 /**
@@ -27,10 +29,13 @@ public class LoginServlet extends HttpServlet {
 		try {
 				LoginServiceImpl loginServiceImpl = new LoginServiceImpl();
 				loginServiceImpl.login(userName, pwd);
-				System.out.println("Ìø×ªÖ÷Ò³");
-		} catch (Exception e) {
-			System.out.println("µ÷»ØÒ³Ãæ£¬·µ»Ø´íÎóĞÅÏ¢");
+				System.out.println("è·³è½¬åˆ°æ­£ç¡®çš„é¡µé¢");
+		} catch (InvalidDataException e) {
+			System.out.println("è·³è½¬å›åŸé¡µé¢"+e.getMsg());
+			response.sendRedirect("Login.jsp");
+		}catch (DatabaseException e) {
+			System.out.println("è·³è½¬å›åŸé¡µé¢"+e.getMsg());
+			response.sendRedirect("Login.jsp");
 		}
 	}
-
 }
