@@ -8,18 +8,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name="userServlet",value="*.do")
+@WebServlet(value="*.do")
 public class UserServlet extends HttpServlet{
 	private static final long serialVersionUID = -7981834699247750242L;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		super.doGet(req, resp);
 		resp.getWriter().println("HelloServlet");
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		super.doPost(req, resp);
 		doGet(req, resp);
 	}
 }
